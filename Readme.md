@@ -10,13 +10,12 @@ docker push microservice-development-centos:latest
 docker run --rm --name pf-service -it service-centos:latest
 ```
 
-## Using image directly from Kratos-docker repository
+## Using image directly from docker repository
 
-Fetching the image from kratos-repo and running it interactively:
+Fetching the image from repo and running it interactively:
 
 ```bash
-docker login https://satguard-docker-dev-local.bits.devops.kratosdefense.com
-docker pull satguard-docker-dev-local.bits.devops.kratosdefense.com/pf/service-centos
-docker run --rm --memory="2g" --memory-swap="2g" --name develop -it satguard-docker-dev-local.bits.devops.kratosdefense.com/pf/service-centos:latest bash
+docker pull microservice-development-centos:latest
+docker run --rm --memory="2g" --memory-swap="2g" --name develop -it microservice-development-centos:latest bash
 ```
 
