@@ -21,7 +21,7 @@ docker run --rm --memory="2g" --memory-swap="2g" --name develop -it microservice
 
 # Using from docker repository
 
-Automatic builind has been enabled from this github repository. Pulling the image can be done using
+Automatic building has been enabled from this github repository. Pulling the image can be done using
 
 ```bash
 docker pull bitchaos/microservice-development-centos:latest
