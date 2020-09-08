@@ -25,6 +25,8 @@ RUN groupadd --gid $USER_GID $USER_NAME \
     && echo $USER_NAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USER_NAME \
     && chmod 0440 /etc/sudoers.d/$USER_NAME
 
+RUN pip3 install conan
+
 USER $USER_NAME
 WORKDIR /home/$USER_NAME
 
@@ -32,4 +34,3 @@ ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 RUN dotnet tool install --global GitVersion.Tool --version 5.3.6 --add-source https://www.nuget.org/api/v2/
 RUN ln -s /home/$USER_NAME/.dotnet/tools/dotnet-gitversion /home/$USER_NAME/.dotnet/tools/gitversion
 
-RUN pip3 install conan
