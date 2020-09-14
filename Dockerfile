@@ -26,6 +26,7 @@ RUN groupadd --gid $USER_GID $USER_NAME \
     && chmod 0440 /etc/sudoers.d/$USER_NAME
 
 RUN pip3 install conan
+RUN pip3 install conan_package_tools
 
 USER $USER_NAME
 WORKDIR /home/$USER_NAME
