@@ -17,7 +17,7 @@ RUN dnf -y install python3-pip
 RUN dnf -y install tmux
 RUN dnf -y install nmap
 RUN dnf -y install vim-minimal
-RUN dnf -y install sudo
+RUN dnf -y install sudo which
 RUN dnf -y install https://github.com/PowerShell/PowerShell/releases/download/v7.0.2/powershell-lts-7.0.2-1.centos.8.x86_64.rpm
 
 RUN groupadd --gid $USER_GID $USER_NAME \
@@ -34,4 +34,6 @@ WORKDIR /home/$USER_NAME
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 RUN dotnet tool install --global GitVersion.Tool --version 5.3.6 --add-source https://www.nuget.org/api/v2/
 RUN ln -s /home/$USER_NAME/.dotnet/tools/dotnet-gitversion /home/$USER_NAME/.dotnet/tools/gitversion
+RUN mkdir -p /home/$USER_NAME/bin
+RUN ln -s /usr/bin/pip3 /home/$USER_NAME/bin/pip
 
