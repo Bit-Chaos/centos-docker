@@ -18,7 +18,8 @@ RUN dnf -y install tmux
 RUN dnf -y install nmap
 RUN dnf -y install vim-minimal
 RUN dnf -y install sudo which
-RUN dnf -y install https://github.com/PowerShell/PowerShell/releases/download/v7.0.2/powershell-lts-7.0.2-1.centos.8.x86_64.rpm
+RUN dnf -y install net-tools
+RUN dnf -y install https://github.com/PowerShell/PowerShell/releases/download/v7.0.3/powershell-7.0.3-1.centos.8.x86_64.rpm
 
 RUN groupadd --gid $USER_GID $USER_NAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USER_NAME \
