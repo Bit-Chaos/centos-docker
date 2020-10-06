@@ -5,6 +5,8 @@ ARG USER_NAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
+COPY microsoft.repo /etc/yum.repos.d/
+
 # configure the software-stack (as root)
 RUN dnf -y install dotnet-sdk-3.1
 RUN dnf -y install gdb
@@ -33,7 +35,7 @@ USER $USER_NAME
 WORKDIR /home/$USER_NAME
 
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
-RUN dotnet tool install --global GitVersion.Tool --version 5.3.6 --add-source https://www.nuget.org/api/v2/
+RUN dotnet tool install --global GitVersion.Tool --version 5.3.7 --add-source https://www.nuget.org/api/v2/
 RUN ln -s /home/$USER_NAME/.dotnet/tools/dotnet-gitversion /home/$USER_NAME/.dotnet/tools/gitversion
 RUN mkdir -p /home/$USER_NAME/bin
 RUN ln -s /usr/bin/pip3 /home/$USER_NAME/bin/pip
