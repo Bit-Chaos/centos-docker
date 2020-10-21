@@ -22,7 +22,7 @@ RUN dnf -y install nmap
 RUN dnf -y install vim-minimal
 RUN dnf -y install sudo which
 RUN dnf -y install net-tools
-RUN dnf -y install docker
+RUN dnf -y install docker-ce
 RUN dnf -y install https://github.com/PowerShell/PowerShell/releases/download/v7.0.3/powershell-7.0.3-1.centos.8.x86_64.rpm
 
 RUN groupadd --gid $USER_GID $USER_NAME \
